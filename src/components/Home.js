@@ -8,6 +8,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import {
+  Actions
+} from "react-native-router-flux";
+
 export default class Home extends Component {
     state = {
       name: "",
@@ -33,7 +37,10 @@ export default class Home extends Component {
         />
         <TouchableOpacity
           onPress={() => {
-            alert(this.state.name)
+            console.log(this.state.name),
+            Actions.chat({
+              name: this.state.name
+            })
           }}
         >
           <Text style={buttonText}>
