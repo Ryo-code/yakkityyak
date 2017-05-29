@@ -9,6 +9,10 @@ import {
 } from 'react-native';
 
 export default class Home extends Component {
+    state = {
+      name: "",
+    }
+
   render(){
     const { title, nameInput, buttonText } = styles;
 
@@ -20,10 +24,16 @@ export default class Home extends Component {
         <TextInput
           style={nameInput}
           placeholder="ex. Ronald Dump"
+          onChangeText={(text) => {
+            this.setState({
+              name: text,
+            });
+          }}
+          value={this.state.name}
         />
         <TouchableOpacity
           onPress={() => {
-            //navigate to the 2nd screen
+            alert(this.state.name)
           }}
         >
           <Text style={buttonText}>
@@ -47,7 +57,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     margin: 20,
     borderRadius: 7,
-    padding: 30
+    padding: 5
   },
   buttonText: {
     marginLeft: 20,
